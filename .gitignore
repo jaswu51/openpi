@@ -1,7 +1,6 @@
 # Data directories.
 assets/
 checkpoints/
-data/
 wandb/
 
 # Byte-compiled / optimized / DLL files
