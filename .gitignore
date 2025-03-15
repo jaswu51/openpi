@@ -5,6 +5,7 @@ wandb/
 bridge_data_v2/
 lerobot/
 openvla/
+data/libero/videos/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
