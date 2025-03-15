@@ -1,0 +1,197 @@
+{
+  "task_results": [
+    {
+      "task_id": 0,
+      "task_description": "open the middle drawer of the cabinet",
+      "episodes": 10,
+      "successes": 0,
+      "success_rate": 0.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 1,
+      "task_description": "put the bowl on the stove",
+      "episodes": 10,
+      "successes": 9,
+      "success_rate": 0.9,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 2,
+      "task_description": "put the wine bottle on top of the cabinet",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 3,
+      "task_description": "open the top drawer and put the bowl inside",
+      "episodes": 10,
+      "successes": 9,
+      "success_rate": 0.9,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 4,
+      "task_description": "put the bowl on top of the cabinet",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 5,
+      "task_description": "push the plate to the front of the stove",
+      "episodes": 10,
+      "successes": 8,
+      "success_rate": 0.8,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 6,
+      "task_description": "put the cream cheese in the bowl",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 7,
+      "task_description": "turn on the stove",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 8,
+      "task_description": "put the bowl on the plate",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 9,
+      "task_description": "put the wine bottle on the rack",
+      "episodes": 10,
+      "successes": 4,
+      "success_rate": 0.4,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "total_episodes": 100,
+  "total_successes": 70,
+  "total_success_rate": 0.7
+}

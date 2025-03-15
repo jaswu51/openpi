@@ -1,0 +1,197 @@
+{
+  "task_results": [
+    {
+      "task_id": 0,
+      "task_description": "pick up the alphabet soup and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 1,
+      "task_description": "pick up the cream cheese and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 2,
+      "task_description": "pick up the salad dressing and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 3,
+      "task_description": "pick up the bbq sauce and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 4,
+      "task_description": "pick up the ketchup and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 5,
+      "task_description": "pick up the tomato sauce and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 6,
+      "task_description": "pick up the butter and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 7,
+      "task_description": "pick up the milk and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 8,
+      "task_description": "pick up the chocolate pudding and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "task_id": 9,
+      "task_description": "pick up the orange juice and place it in the basket",
+      "episodes": 10,
+      "successes": 10,
+      "success_rate": 1.0,
+      "completed_episodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "total_episodes": 100,
+  "total_successes": 94,
+  "total_success_rate": 0.94
+}

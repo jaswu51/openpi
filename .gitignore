@@ -1,9 +1,10 @@
 # Data directories.
 assets/
 checkpoints/
-data/
 wandb/
-
+bridge_data_v2/
+lerobot/
+openvla/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

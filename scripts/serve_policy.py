@@ -2,6 +2,24 @@ import dataclasses
 import enum
 import logging
 import socket
+import os
+import jax
+import gc
+
+# 添加 GPU 内存管理配置
+os.environ['XLA_PYTHON_CLIENT_MEM_FRACTION'] = '0.4'  # 限制为 40% GPU 内存
+os.environ['XLA_PYTHON_CLIENT_PREALLOCATE'] = 'false'
+os.environ['XLA_PYTHON_CLIENT_ALLOCATOR'] = 'platform'
+os.environ['XLA_FLAGS'] = '--xla_gpu_force_compilation_parallelism=1'
+
+# 配置 JAX
+jax.config.update('jax_disable_jit', False)
+jax.config.update('jax_enable_x64', False)
+
+# 添加内存清理函数
+def clear_memory():
+    gc.collect()
+    jax.clear_caches()
 
 import tyro
 
@@ -87,16 +105,24 @@ def create_default_policy(env: EnvMode, *, default_prompt: str | None = None) ->
 
 def create_policy(args: Args) -> _policy.Policy:
     """Create a policy from the given arguments."""
+    clear_memory()  # 在创建策略前清理内存
     match args.policy:
         case Checkpoint():
-            return _policy_config.create_trained_policy(
+            policy = _policy_config.create_trained_policy(
                 _config.get_config(args.policy.config), args.policy.dir, default_prompt=args.default_prompt
             )
+            clear_memory()  # 在加载模型后清理内存
+            return policy
         case Default():
-            return create_default_policy(args.env, default_prompt=args.default_prompt)
+            policy = create_default_policy(args.env, default_prompt=args.default_prompt)
+            clear_memory()  # 在加载模型后清理内存
+            return policy
 
 
 def main(args: Args) -> None:
+    # 在主函数开始时清理内存
+    clear_memory()
+    
     policy = create_policy(args)
     policy_metadata = policy.metadata
 
@@ -107,6 +133,9 @@ def main(args: Args) -> None:
     hostname = socket.gethostname()
     local_ip = socket.gethostbyname(hostname)
     logging.info("Creating server (host: %s, ip: %s)", hostname, local_ip)
+
+    # 在启动服务器前再次清理内存
+    clear_memory()
 
     server = websocket_policy_server.WebsocketPolicyServer(
         policy=policy,
