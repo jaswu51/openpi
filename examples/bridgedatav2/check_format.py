@@ -57,12 +57,38 @@ def visualize_images(step_data):
         if key in step_data["observation"]:
             img = step_data["observation"][key].numpy()
             images.append((key, img))
+            
+            # 检查image_3是否为深度图像
+            if key == "image_3":
+                # 检查图像的维度和特性
+                print(f"\n检查 {key} 是否为深度图像:")
+                print(f"形状: {img.shape}")
+                print(f"数据类型: {img.dtype}")
+                print(f"通道数: {1 if len(img.shape) == 2 else img.shape[2]}")
+                print(f"最小值: {np.min(img)}")
+                print(f"最大值: {np.max(img)}")
+                print(f"平均值: {np.mean(img)}")
+                
+                # 深度图像通常是单通道的，或者值的分布与RGB图像不同
+                is_depth = len(img.shape) == 2 or (img.shape[2] == 1)
+                print(f"是否可能是深度图像: {'是' if is_depth else '否，可能是RGB图像'}")
     
     # 在2x2网格中显示图像
     for idx, (title, img) in enumerate(images):
         row, col = idx // 2, idx % 2
-        axes[row, col].imshow(img)
-        axes[row, col].set_title(f"{title} ({img.shape})")
+        
+        # 对于可能的深度图像使用不同的显示方式
+        if title == "image_3" and (len(img.shape) == 2 or (len(img.shape) == 3 and img.shape[2] == 1)):
+            # 使用jet颜色映射显示深度图像
+            if len(img.shape) == 3:
+                img = img[:,:,0]  # 如果是3D但只有1个通道，转为2D
+            im = axes[row, col].imshow(img, cmap='jet')
+            fig.colorbar(im, ax=axes[row, col], label='深度值')
+            axes[row, col].set_title(f"{title} - 深度图 ({img.shape})")
+        else:
+            axes[row, col].imshow(img)
+            axes[row, col].set_title(f"{title} ({img.shape})")
+        
         axes[row, col].axis('off')
     
     # 如果有语言指令，显示在图表标题中
@@ -73,8 +99,50 @@ def visualize_images(step_data):
         plt.suptitle(f"指令: {instruction}", fontsize=16)
     
     plt.tight_layout()
-    plt.savefig('bridge_data_images.png')
-    print("图像已保存为'bridge_data_images.png'")
+    # 保存到当前目录
+    save_path = Path.cwd() / 'bridge_data_images.png'
+    plt.savefig(save_path)
+    print(f"图像已保存到当前目录: {save_path}")
+
+def save_all_images(episode, sample_id):
+    """保存episode中所有step的所有图像"""
+    # 创建保存图像的目录，使用样本ID命名
+    save_dir = Path.cwd() / f'bridge_data_images_sample_{sample_id}'
+    save_dir.mkdir(exist_ok=True)
+    print(f"\n创建图像保存目录: {save_dir}")
+    
+    # 遍历所有steps
+    for step_idx, step in enumerate(episode["steps"]):
+        # 遍历每个step中的所有图像
+        for img_idx in range(4):  # 假设有4个相机视角
+            img_key = f"image_{img_idx}"
+            if img_key in step["observation"]:
+                img = step["observation"][img_key].numpy()
+                
+                # 创建文件名
+                filename = f"image_{img_idx}_step_{step_idx}.png"
+                filepath = save_dir / filename
+                
+                # 保存图像
+                plt.figure(figsize=(8, 8))
+                
+                # 对于可能的深度图像使用不同的显示方式
+                if img_key == "image_3" and (len(img.shape) == 2 or (len(img.shape) == 3 and img.shape[2] == 1)):
+                    if len(img.shape) == 3:
+                        img = img[:,:,0]  # 如果是3D但只有1个通道，转为2D
+                    plt.imshow(img, cmap='jet')
+                    plt.colorbar(label='深度值')
+                    plt.title(f"{img_key} - 深度图 (Step {step_idx})")
+                else:
+                    plt.imshow(img)
+                    plt.title(f"{img_key} (Step {step_idx})")
+                
+                plt.axis('off')
+                plt.tight_layout()
+                plt.savefig(filepath)
+                plt.close()
+                
+                print(f"保存图像: {filename}")
 
 def main(data_dir: str):
     print(f"正在从 {data_dir} 加载数据集...")
@@ -91,12 +159,17 @@ def main(data_dir: str):
     print(f"特征: {info.features}")
     print(f"训练集大小: {info.splits['train'].num_examples} 个样本")
     
-    # 加载一个episode
+    # 加载数据集
     raw_dataset = builder.as_dataset(split="train")
     
-    # 获取第一个episode
-    for episode in raw_dataset.take(1):
-        print("\n==== Episode 结构 ====")
+    # 处理第1000个样本
+    sample_id = 999  # 索引从0开始，所以第1000个是索引999
+    
+    # 跳过前999个样本，获取第1000个
+    target_sample = raw_dataset.skip(sample_id).take(1)
+    
+    for episode in target_sample:
+        print(f"\n==== 样本 {sample_id+1} 结构 ====")
         print_structure(episode)
         
         # 获取第一个step
@@ -104,6 +177,9 @@ def main(data_dir: str):
         
         # 可视化第一个step的四个相机视角
         visualize_images(first_step)
+        
+        # 保存所有steps中的所有图像
+        save_all_images(episode, sample_id+1)
         
         # 检查observation
         print("\n观察 (Observation):")

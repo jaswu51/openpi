@@ -6,6 +6,13 @@ bridge_data_v2/
 lerobot/
 openvla/
 data/libero/videos/
+
+# 添加可能包含大文件的目录
+droid/
+visualization_output/
+examples/bridgedatav2/bridge_data_images_sample_0/
+examples/bridgedatav2/bridge_data_images_sample_1000/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
