@@ -60,6 +60,9 @@ dev = [
 openpi-client = { workspace = true }
 lerobot = { git = "https://github.com/huggingface/lerobot", rev = "6674e368249472c91382eb54bb8501c94c7f0c56" }
 
+# add aliyun source
+default = { url = "https://mirrors.aliyun.com/pypi/simple" }
+
 [tool.uv.workspace]
 members = ["packages/*"]
 
