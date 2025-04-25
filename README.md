@@ -14,6 +14,7 @@ Click the video
 
 ## Report Slides
 
+VLM-based AI Agent for aotumatic data collection & Optimized VLA fientune
 [Slides Link](https://docs.google.com/presentation/d/1eT6-s9yruAtFrAaKVpM5sRFm6xCjDLtZK9tYLuYnqPw/edit?usp=sharing)
 
 ## openpi
