@@ -7,7 +7,7 @@
 
 
 [![Human-free automatic data collection for dual-arm manipulation](https://img.youtube.com/vi/MK00OFfGdJU/0.jpg)](https://www.youtube.com/watch?v=MK00OFfGdJU)
-Click to the video
+Click the video
 
 # openpi
 
