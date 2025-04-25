@@ -1,3 +1,14 @@
+# Automatic Robotics Data Collection 
+
+## What is collected
+![image](https://github.com/user-attachments/assets/37c4464a-e0be-4bdb-9852-265a3823569b)
+
+## Human-free collection
+
+
+[![Human-free automatic data collection for dual-arm manipulation](https://img.youtube.com/vi/MK00OFfGdJU/0.jpg)](https://www.youtube.com/watch?v=MK00OFfGdJU)
+Click to the video
+
 # openpi
 
 openpi holds open-source models and packages for robotics, published by the [Physical Intelligence team](https://www.physicalintelligence.company/).
